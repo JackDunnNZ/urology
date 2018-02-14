@@ -183,23 +183,30 @@
 
       function formatlevel(l, varname) {
         // TODO translate any categoric levels to text here
-        if (varname == "PRSEPIS") {
-          if (l == "None") {
-            return "No";
-          } else if (l == "SIRS") {
-            return "SIRS only";
-          } else if (l == "Sepsis") {
-            return "Yes, sepsis";
-          } else if (l == "Septic Shock") {
-            return "Yes, septic shock";
+        if (varname == "Race*Sex") {
+          if (l == "BM") {
+            return "Black Male"
+          } 
+          else if (l == "WM") {
+            return "White Male"
           }
-        }
-
-        if (varname == "RACE_NEW") {
-          if (l == "White") {
-            return "White (including white hispanic)"
-          } else if (l == "Black or African American") {
-            return "Black or African American (including black hispanic)"
+           else if (l == "BW") {
+            return "Black Female"
+          }
+           else if (l == "WF") {
+            return "White Female"
+          }
+           else if (l == "MF") {
+            return "Mixed Female"
+          }
+           else if (l == "MM") {
+            return "Mixed Male"
+          }
+           else if (l == "OM") {
+            return "Other Male"
+          }
+           else if (l == "OF") {
+            return "Other Female"
           }
         }
         return l;
