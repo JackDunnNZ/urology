@@ -4247,14 +4247,14 @@
             "Y"
         ],
         [
-            "BF",
-            "BM",
-            "HF",
-            "HM",
-            "OF",
-            "OM",
-            "WF",
-            "WM"
+            "Black Female",
+            "Black Male",
+            "Mixed Female",
+            "Mixed Male",
+            "Other Female",
+            "Other Male",
+            "White Female",
+            "White Male"
         ],
         [
             "N",
