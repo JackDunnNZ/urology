@@ -61,6 +61,7 @@
 
     document.addEventListener('storage', storageEventHandler, false);
     function storageEventHandler(evt){
+        console.log("storage event occured");
         var str = evt.newValue
         var data = JSON.parse(str); // create object
         var tr = document.createElement("tr");
