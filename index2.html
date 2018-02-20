@@ -56,6 +56,7 @@
       $('#target input').click(refreshtree);
 
       $(document).ready(function() {
+        loadtree("VUR_tree_0.79_names.json");
         $('#target-vur').trigger('click');
       });
     </script>
@@ -127,12 +128,11 @@
 
           if (node.split_type == "LEAF") {
             questionVisible[i] = true;
-            console.log(currentTree);
             if (currentTree=="VUR_tree_0.79_names.json") {
               var arrayLength = knownInfo.length;
               var nodeLength=treedata.tree_.node_count;
               for (var i = 0; i < arrayLength; i++) {
-                  if (knowninfo[i] != undefined) {
+                  if (knownInfo[i] != undefined) {
                   for (var j=0; j<nodeLength; j++) {
                     var tempNode=treedata.tree_.nodes[j];
                     if (getfeature(tempNode)== i) {
