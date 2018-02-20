@@ -59,7 +59,6 @@
     header.appendChild(presC);
     thead.appendChild(header);
 
-    document.addEventListener('storage', storageEventHandler, false);
     addEvent(document,'storage',function (event) {
       console.log("storage event occured");
       var str = event.newValue
