@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Optimal Trees for Urology</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="question.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+
+    <script>
+    var table = document.createElement("table");
+    table.id = 'mytable';
+    table.rules= 'cols';
+
+    var thead = document.createElement("thead");
+    table.appendChild(thead);
+
+    var tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+    var header = document.createElement("tr");
+    var bbd = document.createElement("th");
+    var raceSex = document.createElement("th");
+    var antiR = document.createElement("th");
+    var acRatio = document.createElement("th");
+    var antiT = document.createElement("th");
+    var dysuria = document.createElement("th");
+    var weightP = document.createElement("th");
+    var ageWeight = document.createElement("th");
+    var bloodP = document.createElement("th");
+    var presC = document.createElement("th");
+    bbd.innerHTML = "BBD*Age (mo.)'";
+    raceSex.innerHTML = "Race*Sex";
+    antiR.innerHTML = "Counts of Antibiotic Resistance";
+    acRatio.innerHTML = "'Urine Microalbumin to Creatinine Ratio";
+    antiT.innerHTML = "Antibiotic Treatment within 6 mo.";
+    dysuria.innerHTML = "Dysuria?";
+    weightP.innerHTML = "Weight Percentile";
+    ageWeight.innerHTML = "Age (mo.)*Weight (kg)";
+    bloodP.innerHTML = "Systolic BP >90th percentile?";
+    presC.innerHTML = "Taking prescriptions?";
+    header.appendChild(bbd);
+    header.appendChild(raceSex);
+    header.appendChild(antiR);
+    header.appendChild(acRatio);
+    header.appendChild(antiT);
+    header.appendChild(dysuria);
+    header.appendChild(weightP);
+    header.appendChild(ageWeight);
+    header.appendChild(bloodP);
+    header.appendChild(presC);
+    thead.appendChild(header);
+
+    window.addEventListener('storage', storageEventHandler, false);
+    function storageEventHandler(evt){
+        var str = evt.newValue
+        var data = JSON.parse(str); // create object
+        var tr = document.createElement("tr");
+        var bbd = document.createElement("td");
+        var raceSex = document.createElement("td");
+        var antiR = document.createElement("td");
+        var acRatio = document.createElement("td");
+        var antiT = document.createElement("td");
+        var dysuria = document.createElement("td");
+        var weightP = document.createElement("td");
+        var ageWeight = document.createElement("td");
+        var bloodP = document.createElement("td");
+        var presC = document.createElement("td");
+        bbd.appendChild(document.createTextNode(data[0]));
+        raceSex.appendChild(document.createTextNode(data[1]));
+        antiR.appendChild(document.createTextNode(data[2]));
+        acRatio.appendChild(document.createTextNode(data[3]));
+        antiT.appendChild(document.createTextNode(data[4]));
+        dysuria.appendChild(document.createTextNode(data[5]));
+        weightP.appendChild(document.createTextNode(data[6]));
+        ageWeight.appendChild(document.createTextNode(data[7]));
+        bloodP.appendChild(document.createTextNode(data[8]));
+        presC.appendChild(document.createTextNode(data[9]));
+        tr.appendChild(bbd);
+        tr.appendChild(raceSex);
+        tr.appendChild(antiR);
+        tr.appendChild(acRatio);
+        tr.appendChild(antiT);
+        tr.appendChild(dysuria);
+        tr.appendChild(weightP);
+        tr.appendChild(ageWeight);
+        tr.appendChild(bloodP);
+        tr.appendChild(presC);
+        tbody.appendChild(tr);
+    }
+    document.body.appendChild(table);
+    </script>
+  </body>
+</html>
