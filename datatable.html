@@ -50,7 +50,7 @@
     header.appendChild(presC);
     thead.appendChild(header);
 
-    document.addEventListener('storage',function (event) {
+    window.addEventListener('storage',function (event) {
       console.log("storage event occured");
       var str = event.newValue
       var data = JSON.parse(str); // create object
