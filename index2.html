@@ -56,7 +56,7 @@
       $('#target input').click(refreshtree);
 
       $(document).ready(function() {
-        $('#target-infection').trigger('click');
+        $('#target-vur').trigger('click');
       });
     </script>
 
@@ -311,6 +311,7 @@
               div.appendChild(result)
               var arrayLength = knownInfo.length;
               var nodeLength=treedata.tree_.nodes.length;
+
               for (var i = 0; i < arrayLength; i++) {
                   for (var j=0; j<nodeLength; j++) {
                     var tempNode=treedata.tree_.nodes[j];
