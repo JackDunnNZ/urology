@@ -126,6 +126,28 @@
 
           if (node.split_type == "LEAF") {
             questionVisible[i] = true;
+            var arrayLength = knownInfo.length;
+            var nodeLength=treedata.tree_.nodes.length;
+            for (var i = 0; i < arrayLength; i++) {
+                for (var j=0; j<nodeLength; j++) {
+                  var tempNode=treedata.tree_.nodes[j];
+                  if (getfeature(tempNode)== i) {
+                    var selectNode=tempNode;
+                    break;
+                  }
+                }
+                if (tempNode.split_type == "CATEGORIC") {
+                  var featureName=treedata.feature_names_categoric_[tempNode.feature-1];
+                } else {
+                  var featureName=treedata.feature_names_numeric_[tempNode.feature-1];
+                }
+                var logIndex= ['BBD*Age (mo.)','Race*Sex','Counts of Antibiotic Resistance','Urine Microalbumin to Creatinine Ratio', 'Antibiotic Treatment within 6 mo.','Dysuria?','Weight Percentile','Age (mo.)*Weight (kg)','Systolic BP >90th percentile?','Taking prescriptions?'];
+                var logInfo = [undefined, undefined, undefined,undefined, undefined, undefined,undefined, undefined, undefined,undefined];
+                if (logIndex.indexOf(featureName) != -1){
+                  logInfo[logIndex.indexOf(featureName)] = knownInfo[i];
+                }
+            }
+            localStorage.setItem("savedData",JSON.stringify(logInfo));
             break;
           }
 
@@ -309,29 +331,6 @@
               result.appendChild(document.createTextNode(
                   formatProb(node.probs[1]) + "%"))
               div.appendChild(result)
-              var arrayLength = knownInfo.length;
-              var nodeLength=treedata.tree_.nodes.length;
-
-              for (var i = 0; i < arrayLength; i++) {
-                  for (var j=0; j<nodeLength; j++) {
-                    var tempNode=treedata.tree_.nodes[j];
-                    if (getfeature(tempNode)== i) {
-                      var selectNode=tempNode;
-                      break;
-                    }
-                  }
-                  if (tempNode.split_type == "CATEGORIC") {
-                    var featureName=treedata.feature_names_categoric_[tempNode.feature-1];
-                  } else {
-                    var featureName=treedata.feature_names_numeric_[tempNode.feature-1];
-                  }
-                  var logIndex= ['BBD*Age (mo.)','Race*Sex','Counts of Antibiotic Resistance','Urine Microalbumin to Creatinine Ratio', 'Antibiotic Treatment within 6 mo.','Dysuria?','Weight Percentile','Age (mo.)*Weight (kg)','Systolic BP >90th percentile?','Taking prescriptions?'];
-                  var logInfo = [undefined, undefined, undefined,undefined, undefined, undefined,undefined, undefined, undefined,undefined];
-                  if (logIndex.indexOf(featureName) != -1){
-                    logInfo[logIndex.indexOf(featureName)] = knownInfo[i];
-                  }
-              }
-              localStorage.setItem("savedData",JSON.stringify(logInfo));
             }
 
             var text1 = node.n_node_samples + ' patients'
