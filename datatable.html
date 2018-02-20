@@ -59,7 +59,7 @@
     header.appendChild(presC);
     thead.appendChild(header);
 
-    addEvent(document,'storage',function (event) {
+    document.addEventListener('storage',function (event) {
       console.log("storage event occured");
       var str = event.newValue
       var data = JSON.parse(str); // create object
@@ -95,7 +95,7 @@
       tr.appendChild(bloodP);
       tr.appendChild(presC);
       tbody.appendChild(tr);
-    });
+    },false);
     document.body.appendChild(table);
     </script>
   </body>
