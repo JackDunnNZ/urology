@@ -60,43 +60,43 @@
     thead.appendChild(header);
 
     document.addEventListener('storage', storageEventHandler, false);
-    function storageEventHandler(evt){
-        console.log("storage event occured");
-        var str = evt.newValue
-        var data = JSON.parse(str); // create object
-        var tr = document.createElement("tr");
-        var bbd = document.createElement("td");
-        var raceSex = document.createElement("td");
-        var antiR = document.createElement("td");
-        var acRatio = document.createElement("td");
-        var antiT = document.createElement("td");
-        var dysuria = document.createElement("td");
-        var weightP = document.createElement("td");
-        var ageWeight = document.createElement("td");
-        var bloodP = document.createElement("td");
-        var presC = document.createElement("td");
-        bbd.appendChild(document.createTextNode(data[0]));
-        raceSex.appendChild(document.createTextNode(data[1]));
-        antiR.appendChild(document.createTextNode(data[2]));
-        acRatio.appendChild(document.createTextNode(data[3]));
-        antiT.appendChild(document.createTextNode(data[4]));
-        dysuria.appendChild(document.createTextNode(data[5]));
-        weightP.appendChild(document.createTextNode(data[6]));
-        ageWeight.appendChild(document.createTextNode(data[7]));
-        bloodP.appendChild(document.createTextNode(data[8]));
-        presC.appendChild(document.createTextNode(data[9]));
-        tr.appendChild(bbd);
-        tr.appendChild(raceSex);
-        tr.appendChild(antiR);
-        tr.appendChild(acRatio);
-        tr.appendChild(antiT);
-        tr.appendChild(dysuria);
-        tr.appendChild(weightP);
-        tr.appendChild(ageWeight);
-        tr.appendChild(bloodP);
-        tr.appendChild(presC);
-        tbody.appendChild(tr);
-    }
+    addEvent(document,'storage',function (event) {
+      console.log("storage event occured");
+      var str = event.newValue
+      var data = JSON.parse(str); // create object
+      var tr = document.createElement("tr");
+      var bbd = document.createElement("td");
+      var raceSex = document.createElement("td");
+      var antiR = document.createElement("td");
+      var acRatio = document.createElement("td");
+      var antiT = document.createElement("td");
+      var dysuria = document.createElement("td");
+      var weightP = document.createElement("td");
+      var ageWeight = document.createElement("td");
+      var bloodP = document.createElement("td");
+      var presC = document.createElement("td");
+      bbd.appendChild(document.createTextNode(data[0]));
+      raceSex.appendChild(document.createTextNode(data[1]));
+      antiR.appendChild(document.createTextNode(data[2]));
+      acRatio.appendChild(document.createTextNode(data[3]));
+      antiT.appendChild(document.createTextNode(data[4]));
+      dysuria.appendChild(document.createTextNode(data[5]));
+      weightP.appendChild(document.createTextNode(data[6]));
+      ageWeight.appendChild(document.createTextNode(data[7]));
+      bloodP.appendChild(document.createTextNode(data[8]));
+      presC.appendChild(document.createTextNode(data[9]));
+      tr.appendChild(bbd);
+      tr.appendChild(raceSex);
+      tr.appendChild(antiR);
+      tr.appendChild(acRatio);
+      tr.appendChild(antiT);
+      tr.appendChild(dysuria);
+      tr.appendChild(weightP);
+      tr.appendChild(ageWeight);
+      tr.appendChild(bloodP);
+      tr.appendChild(presC);
+      tbody.appendChild(tr);
+    });
     document.body.appendChild(table);
     </script>
   </body>
