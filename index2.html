@@ -18,11 +18,11 @@
           <div class="heading">I would like to predict my patient's risk of:</div>
           <div class="clearfix">
             <label class="radio-inline col-xs-4">
-              <input type="radio" id="target-infection" name="target" checked/>
+              <input type="radio" id="target-infection" name="target" />
               Infection
             </label>
             <label class="radio-inline col-xs-4">
-              <input type="radio" id="target-vur" name="target"/>
+              <input type="radio" id="target-vur" name="target"checked/>
               Vesicoureteral Reflux
             </label>
           </div>
@@ -133,6 +133,7 @@
               var nodeLength=treedata.tree_.node_count;
               for (var i = 0; i < arrayLength; i++) {
                   if (knownInfo[i] != undefined) {
+                    console.log(knownInfo[i])
                   for (var j=0; j<nodeLength; j++) {
                     var tempNode=treedata.tree_.nodes[j];
                     if (getfeature(tempNode)== i) {
@@ -145,6 +146,7 @@
                   } else {
                     var featureName=treedata.feature_names_numeric_[tempNode.feature-1];
                   }
+                    console.log(featureName)
                   var logIndex= ['BBD*Age (mo.)','Race*Sex','Counts of Antibiotic Resistance','Urine Microalbumin to Creatinine Ratio', 'Antibiotic Treatment within 6 mo.','Dysuria?','Weight Percentile','Age (mo.)*Weight (kg)','Systolic BP >90th percentile?','Taking prescriptions?'];
                   var logInfo = [undefined, undefined, undefined,undefined, undefined, undefined,undefined, undefined, undefined,undefined];
                   if (logIndex.indexOf(featureName) != -1){
